@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма реєстрації</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .registration-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .registration-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .registration-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .registration-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .registration-form input:focus {
+            border-color: darkmagenta;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+
+        .registration-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: darkmagenta;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .registration-form button:hover {
+            background-color: #9b0080;
+        }
+    </style>
+</head>
+<body>
+    <form class="registration-form" action="page5.html">
+        <h2>Реєстрація</h2>
+        <div class="form-group">
+            <label for="login">Логін</label>
+            <input type="text" id="login" name="login" placeholder="Введіть логін" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" placeholder="Введіть пароль" required>
+        </div>
+        <button type="submit">Зареєструватись</button>
+    </form>
+</body>
+</html>

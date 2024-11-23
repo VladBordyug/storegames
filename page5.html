@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Відгук</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0e6f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .feedback-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .feedback-box h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: darkmagenta;
+        }
+
+        .feedback-box textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            resize: none;
+            height: 100px;
+            box-sizing: border-box;
+        }
+
+        .feedback-box textarea:focus {
+            border-color: darkmagenta;
+            box-shadow: 0 0 5px rgba(123, 31, 162, 0.5);
+            outline: none;
+        }
+
+        .feedback-box button {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background-color: darkmagenta;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .feedback-box button:hover {
+            background-color: #9b0080;
+        }
+
+        .notification {
+            display: none;
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px 20px;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            font-size: 14px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .notification.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="feedback-box">
+        <h2>Залишити відгук</h2>
+        <textarea id="feedback" placeholder="Напишіть ваш відгук тут..."></textarea>
+        <button onclick="submitFeedback()">Відправити</button>
+        <div id="notification" class="notification">Дякуємо за відгук!</div>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            const feedback = document.getElementById('feedback').value.trim();
+
+            if (feedback) {
+                
+                const notification = document.getElementById('notification');
+                notification.classList.add('show');
+
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+
+                
+                document.getElementById('feedback').value = '';
+            } else {
+                alert('Будь ласка, напишіть ваш відгук перед відправленням.');
+            }
+        }
+    </script>
+</body>
+</html>
