@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма відгуку</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .feedback-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(128, 0, 128, 0.2); 
+            width: 400px;
+        }
+
+        .feedback-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .feedback-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .feedback-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .feedback-form textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            border-color: #800080;
+            box-shadow: 0 0 5px rgba(128, 0, 128, 0.5);
+        }
+
+        .feedback-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #800080; 
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .feedback-form button:hover {
+            background-color: #5e005e; 
+        }
+
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+            z-index: 1000;
+        }
+
+        .modal h3 {
+            color: #333;
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .modal button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: #800080;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal button:hover {
+            background-color: #5e005e;
+        }
+
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="modal" id="modal">
+        <h3>Запит відправлено!</h3>
+        <button id="closeModal">Закрити</button>
+    </div>
+
+    <form class="feedback-form" id="feedbackForm">
+        <h2>Залишити відгук</h2>
+        <div class="form-group">
+            <label for="login">Логін</label>
+            <input type="text" id="login" name="login" placeholder="Введіть логін" required>
+        </div>
+        <div class="form-group">
+            <label for="feedback">Відгук</label>
+            <textarea id="feedback" name="feedback" placeholder="Напишіть свій відгук" required></textarea>
+        </div>
+        <button type="submit">Зареєструватися та залишити відгук</button>
+    </form>
+
+    <script>
+        
+        const feedbackForm = document.getElementById('feedbackForm');
+        const modal = document.getElementById('modal');
+        const overlay = document.querySelector('.overlay');
+        const closeModal = document.getElementById('closeModal');
+
+        
+        function showModal() {
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        
+        function hideModal() {
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+
+        
+        feedbackForm.addEventListener('submit', function (e) {
+            
+            showModal();
+        });
+
+        
+        closeModal.addEventListener('click', hideModal);
+
+        
+        overlay.addEventListener('click', hideModal);
+    </script>
+</body>
+</html>

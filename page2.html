@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин Ігор</title>
+  <style>
+    /* Основні стилі */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #4b0082, #8a2be2);
+      color: white;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      animation: fadeIn 2s;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 1rem;
+    }
+
+    .button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #6a0dad;
+      border: none;
+      color: white;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: #9b30ff;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    /* Квадратик */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      border: 2px solid #9b30ff;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .popup button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #6a0dad;
+      border: none;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background: #9b30ff;
+    }
+
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ласкаво просимо до магазину ігор!</h1>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2>Великий вибір ігор</h2>
+      <p>У нашому магазині представлено тисячі ігор для будь-якого смаку та платформи.</p>
+      <button class="button" onclick="showPopup()">Дізнатися більше</button>
+    </div>
+    <div class="card">
+      <h2>Вигідні пропозиції</h2>
+      <p>Знижки, акції та ексклюзивні пакети доступні тільки у нас.</p>
+      <button class="button">Переглянути акції</button>
+    </div>
+    <div class="card">
+      <h2>Цілодобова підтримка</h2>
+      <p>Ми завжди готові допомогти вам з будь-якими питаннями.</p>
+      <button class="button">Зв'язатися з нами</button>
+    </div>
+  </div>
+
+  
+  <div id="popup" class="popup">
+    <p>Тут нічого немає</p>
+    <button onclick="closePopup()">Закрити</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Магазин Ігор. Усі права захищено.</p>
+  </footer>
+
+  <script>
+    function showPopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'block';
+    }
+
+    function closePopup() {
+      const popup = document.getElementById('popup');
+      popup.style.display = 'none';
+    }
+  </script>
+</body>
+</html>

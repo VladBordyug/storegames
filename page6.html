@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Рейтинг Сайту</title>
+  <style>
+    /* Основні стилі */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2a003e, #4b0082, #8a2be2);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .rating {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .star {
+      font-size: 2rem;
+      cursor: pointer;
+      color: white;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .star:hover,
+    .star.active {
+      transform: scale(1.2);
+      color: #ffd700;
+    }
+
+    .content-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      max-width: 800px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+      animation: appear 1.5s ease-in-out;
+    }
+
+    .content-box p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Анімації */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Рейтинг нашого сайту</h1>
+  </header>
+
+  <main>
+    <h2>Оцініть нас!</h2>
+    <div class="rating" id="rating">
+      <span class="star" data-value="1">★</span>
+      <span class="star" data-value="2">★</span>
+      <span class="star" data-value="3">★</span>
+      <span class="star" data-value="4">★</span>
+      <span class="star" data-value="5">★</span>
+    </div>
+    <div class="content-box">
+      <p>
+        Наш сайт пропонує широкий вибір ігор, вигідні пропозиції, і цілодобову підтримку. Ми цінуємо
+        кожного користувача і постійно вдосконалюємося, щоб забезпечити найкращий досвід. Оцініть
+        нас і допоможіть зробити сайт ще кращим!
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Магазин Ігор. Усі права захищено.</p>
+  </footer>
+
+  <script>
+    // Додавання інтерактивності рейтингу
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        // Скидаємо активність усіх зірок
+        stars.forEach(s => s.classList.remove('active'));
+        // Додаємо активність обраній і попереднім
+        for (let i = 0; i < star.dataset.value; i++) {
+          stars[i].classList.add('active');
+        }
+        alert(`Ваша оцінка: ${star.dataset.value} з 5`);
+      });
+    });
+  </script>
+</body>
+</html>
