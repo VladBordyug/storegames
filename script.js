@@ -6,5 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const online = bar.getAttribute('data-online'); 
       bar.style.height = `${online * 1.5}px`;
       const tooltip = bar.querySelector('.tooltip');
-      tooltip.textContent = `${online} користувачів`; 
+        tooltip.textContent = `${online} користувачів`; 
+      });
   });
